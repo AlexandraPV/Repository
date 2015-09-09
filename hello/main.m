@@ -6,12 +6,11 @@
 //  Copyright (c) 2015 Alexandra. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+//C hello world example
+#include <stdio.h>
 
-int main(int argc, const char * argv[]) {
-    @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello!");
-    }
+int main()
+{
+    printf("Hello, world!\n");
     return 0;
 }
