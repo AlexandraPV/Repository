@@ -1,3 +1,4 @@
+#import <math.h>
 double calc(double x, double y, double z) {
     double a;
     if ( (x!=y) && (z!=0) && (x!=0) && (sin(x)!=0) )
