@@ -1,4 +1,4 @@
-#import <math.h>
+#include <math.h>
 int satisfies(int a, int b, int c) {
     int result;
     int modmin,min,max,sum2;
