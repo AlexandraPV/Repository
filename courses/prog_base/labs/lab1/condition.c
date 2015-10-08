@@ -1,15 +1,15 @@
-#include <math.h>
+#import <math.h>
 int satisfies(int a, int b, int c) {
     int result;
     int modmin,min,max,sum2;
     if (a<0 && b<0 && c<0)
     {
-        if (a<b && a<c)
+        if (a<=b && a<=c)
         {
             modmin=abs(a); sum2=b+c;
         }
         else
-            if (b<c && b<a)
+            if (b<=c && b<=a)
             {
                 modmin=abs(b); sum2=a+c;
             }
@@ -27,7 +27,7 @@ int satisfies(int a, int b, int c) {
             {
                 result=1;
             }
-        
+            else result=0;
     }
     else
         if (a<0 && b>=0 && c>=0 && a>-256)
@@ -67,7 +67,7 @@ int satisfies(int a, int b, int c) {
                                         max=a;
                                     }
                                     else
-                                        if (b>a && b>c)
+                                        if (b>=a && b>=c)
                                         {
                                             max=b;
                                         }
@@ -75,12 +75,12 @@ int satisfies(int a, int b, int c) {
                                             max=c;
                                     
                                     
-                                    if (a<b && a<c)
+                                    if (a<=b && a<=c)
                                     {
                                         min=a;
                                     }
                                     else
-                                        if (b<a && b<c)
+                                        if (b<=a && b<=c)
                                         {
                                             min=b;
                                         }
@@ -100,6 +100,8 @@ int satisfies(int a, int b, int c) {
                                 {
                                     result=0;
                                 }
+    return result;
+}
     
     return result;
 }
