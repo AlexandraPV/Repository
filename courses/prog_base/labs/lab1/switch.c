@@ -28,9 +28,9 @@ int sizeOfData_type ( int data_type) {
 int exec(int op, int a, int b) {
     int result;
    if (op < 0) {
-        int c = a;
+        int x = a;
         a = b;
-        b = c;
+        b = x;
         op *= -1;
     }
     switch (op)
