@@ -18,7 +18,7 @@ int satisfies(int a, int b, int c) {
                 modmin=abs(c); sum2=a+b;
             }
         
-        if (sum2<-256 && modmin==1 && modmin==2 && modmin==4 && modmin==8 && modmin==16 && modmin==32 && modmin==64 && modmin==128)
+        if (sum2<-256 && (modmin==1 || modmin==2 || modmin==4 || modmin==8 || modmin==16 || modmin==32 || modmin==64 || modmin==128))
         {
             result=1;
         }
