@@ -2,19 +2,11 @@
 #include <math.h>
 #include <stdlib.h>
 
-double long2double();
-int main(){
-    long num;
-    printf("%.325lf",long2double(num));
-}
-
 double long2double() {
     long num;                    //num-first number
     char S, x, y;               // S - sign
     double F=0,E=0, V;         //F-mantisa, V- final number, E- exponenta
-    
-   printf("Long number:");
-   scanf("%ld", &num);
+    num=4620000000000000000;
     
     S=(num>>63)&1;
     for (y=52; y<63; ++y) {
