@@ -2,10 +2,9 @@
 #include <math.h>
 #include <stdlib.h>
 
-double long2double() {
-    long num;                    //num-first number
-    char S, x, y;               // S - sign
-    double F=0,E=0, V;         //F-mantisa, V- final number, E- exponenta
+double long2double(long num) {
+    char S, x, y;               
+    double F=0,E=0, V;         
     num=4620000000000000000;
     
     S=(num>>63)&1;
