@@ -2,6 +2,7 @@
 #include <math.h>
 #include <stdlib.h>
 
+double long2double();
 int main(){
     long num;                //num-first number
     int E=0, S, x, y;        // E- exponenta, S - sign
