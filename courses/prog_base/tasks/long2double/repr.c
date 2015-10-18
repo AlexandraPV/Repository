@@ -5,7 +5,7 @@
 double long2double(long num) {
     char S, x, y;               
     double F=0,E=0, V;         
-    num=4620000000000000000;
+    
     
     S=(num>>63)&1;
     for (y=52; y<63; ++y) {
