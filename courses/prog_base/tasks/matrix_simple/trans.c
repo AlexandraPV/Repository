@@ -11,7 +11,7 @@ void fillRand(int mat[4][4])
     }
 }
 
-void flipV(int mat[4][4])
+void rotateCCW180(int mat[4][4])
 {
     
     for(int i=0; i<4; i++)
