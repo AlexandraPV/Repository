@@ -4,7 +4,7 @@ void fillRand(int mat[4][4])
     {
         for (int j = 0; j < 4; j++)
         {
-            mat[i][j] = rand()%1997-999;
+            mat[i][j] = rand()%1999-999;
         }
     }
 }
