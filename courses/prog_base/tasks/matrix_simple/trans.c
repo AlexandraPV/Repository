@@ -55,11 +55,16 @@ void flipV( int mat[4][4])
 }
 
 
- void transposMain(int mat[4][4])
- {
-  for(int i=0; i<4; i++)
-    {
-        for(int j=0; j<4; j++)
-           mat [j][i]= mat[i][j];
+void transposMain(int mat[4][4]){
+    int mat1[4][4];
+    
+    for (int i=0;i<4;i++){
+        for (int j=0;j<4;j++)
+            mat1[i][j]=mat[i][j];
+        
     }
-  }
+    for (int e=0;e<4;e++){
+        for (int g=0;g<4;g++)
+            mat[e][g]=mat1[g][e];
+    }
+}
