@@ -1,0 +1,25 @@
+int main(){
+    int N=3;
+    int mas1[N];
+    int mas2[N];
+    int riz;
+    for (int i = 0; i < N; i++){
+        mas1[N] = rand()%1997-999;
+    printf(" %d ", mas1[N]);}
+
+    for (int i = 0; i < N; i++){
+            mas2[N] = rand()%1997-999;
+        printf(" %d ", mas2[N]);}
+    
+    for (int j=0; j<N;j++){
+         riz = mas1[j]-mas2[j];
+    if ((abs (riz)) > 10)
+        printf("%d", riz);
+    else continue;
+    
+}
+
+
+           return 0;
+}
+
