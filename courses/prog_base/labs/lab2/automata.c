@@ -1,20 +1,19 @@
-enum op { POP, CONTINUE, REPEAT, BREAK, EMPTY };
-
-struct Move
+int run(int moves[], int movesLen, int res[], int resLen)
 {
-    enum op left;
-    int right;
-};
-int run(int moves[], int movesLen, int res[], int resLen, enum op c)
-{
+    enum op { POP=-10, CONTINUE, REPEAT, BREAK, EMPTY };
+    struct Move
+    {
+        enum op left;
+        int right;
+    };
     movesLen = 4;
     resLen = movesLen;
     
-    int currentState = 0;
-    int currentMove;
+    int state = 0;
+    int move=0;
     int i = 0;
     int j = 0;
-    int ressssssss;
+    int ressssssss=0;
     int resNumbers = 0;
     
     struct Move automata[4][4];
@@ -57,16 +56,16 @@ int run(int moves[], int movesLen, int res[], int resLen, enum op c)
         switch (moves[i])
         {
             case 6:
-                currentMove = 0;
+                move = 0;
                 break;
             case 14:
-                currentMove = 1;
+                move = 1;
                 break;
             case 24:
-                currentMove = 2;
+                move = 2;
                 break;
             case 204:
-                currentMove = 3;
+                move = 3;
                 break;
             default:
                 ressssssss = 1;
@@ -77,7 +76,7 @@ int run(int moves[], int movesLen, int res[], int resLen, enum op c)
             break;
         }
         
-        switch (automata[currentState][currentMove].left)
+        switch (automata[state][move].left)
         {
             case BREAK:
                 ressssssss = 1;
@@ -88,7 +87,7 @@ int run(int moves[], int movesLen, int res[], int resLen, enum op c)
                     res[j - 1] = 0;
                     j--;
                     i++;
-                    currentState = automata[currentState][currentMove].right; 
+                    state = automata[state][move].right; 
                     break; 
                 } 
                 else 
@@ -97,22 +96,22 @@ int run(int moves[], int movesLen, int res[], int resLen, enum op c)
                     break; 
                 } 
             case REPEAT:
-                currentState = automata[currentState][currentMove].right; 
+                state = automata[state][move].right; 
                 break; 
             case CONTINUE:
                 i++;
-                currentState = automata[currentState][currentMove].right; 
+                state = automata[state][move].right; 
                 break; 
             default: 
-                res[j] = automata[currentState][currentMove].right;
+                res[j] = automata[state][move].left;
                 j++;
                 i++; 
-                currentState = automata[currentState][currentMove].right; 
+                state = automata[state][move].right; 
                 break; 
         } 
         
         if (ressssssss == 1) 
-            break; 
+            break;
     } 
     for (j = 0; j<resLen; j++)
     { 
