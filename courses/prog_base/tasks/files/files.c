@@ -6,8 +6,11 @@
 
 void fprocess(const char * pread, const char * pwrite)
 {
-    FILE * fr = fopen(pread, "r");
-    FILE * fw = fopen(pwrite, "w");
+FILE * fr = NULL;
+fr = fopen(pread, "r"); 
+FILE * fw = NULL;
+fw = fopen(pwrite, "w");
+
     if (fr == NULL || fw == NULL)
         return;
     int a = 0, b = 0;
