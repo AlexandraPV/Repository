@@ -1,3 +1,10 @@
+//
+//  main.c
+//  варіант 16
+//  Контрольна робота №1 (перездача)
+//  №6
+//
+
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
