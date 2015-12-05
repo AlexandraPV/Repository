@@ -1,0 +1,28 @@
+//
+//  main.c
+//  варіант 16
+//  Контрольна робота №1 (перездача)
+//  №5
+//
+
+#include <stdio.h>
+#include <math.h>
+int main(){
+    printf("Size of mas = ");
+    int size;
+    scanf("%d", &size);
+    int mas[size];
+    int i;
+    for (i = 0; i < size; i++) {
+        mas[i] = rand()%20-9;
+        printf("%d ", mas[i]);
+    }
+    printf("\n");
+    for (i = 0; i < size; i++) {
+        if (mas[i]>=0)
+            printf("%d ", i);
+        
+    }
+   
+    return 0;
+}
