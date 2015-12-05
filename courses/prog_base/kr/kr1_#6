@@ -1,0 +1,34 @@
+
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+    int i,n, p = 0;
+    int ind1 = -1;
+    char vyras[100];
+    gets(vyras);
+    n = strlen(vyras);
+    
+    
+    for (i = 0; i<n; i++){
+        if (vyras[i] == '(' ) p++;
+        if (vyras[i] == ')' ) p--;
+    }
+    if (p == 0) printf ("correct");
+    else printf ("bad");
+    for (i = 0; i < n; i++){
+        if (vyras[i] == '(') ind1 = i;
+        if (vyras[i] == ')' && ind1 != -1)
+            
+        {
+            for (int j = ind1 + 1; j < i; j++)
+                printf("%c", vyras[j]); 
+            ind1 = -1; 
+        } 
+    } 
+    
+    
+    return 0; 
+}
+
