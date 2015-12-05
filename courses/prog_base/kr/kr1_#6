@@ -1,9 +1,13 @@
-
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
-
+void Funk();
 int main() {
+    Funk();
+    
+    return 0; 
+}
+void Funk(){
     int i,n, p = 0;
     int ind1 = -1;
     char vyras[100];
@@ -23,12 +27,13 @@ int main() {
             
         {
             for (int j = ind1 + 1; j < i; j++)
-                printf("%c", vyras[j]); 
-            ind1 = -1; 
-        } 
-    } 
+                printf("%c", vyras[j]);
+            ind1 = -1;
+        }
+    }
+ 
     
-    
-    return 0; 
 }
+
+
 
