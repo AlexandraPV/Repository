@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+
+void Function ( char *str){
+    const char * pread= "temp.txt";
+    const char * pwrite= "answer.txt";
+    str = (char *)malloc(sizeof(char)*30);
+    FILE * fr = NULL;
+    fr = fopen(pread, "r");
+    
+    FILE * fw = NULL;
+    fw = fopen(pwrite, "w");
+    if (fr == NULL || fw == NULL)
+   //printf("Enter string:");
+    fscanf(fr, "%s", str);
+    int num=atoi(strlen(str));
+    printf ("Исходная строка: %s\n", str);
+    printf ("Результат разбиения:\n");
+    if (num%4==0){
+        char *istr;
+        istr = strtok (str, num);
+    
+    while (istr != NULL)
+    {
+        
+        printf ("%s\n",istr);
+        
+        istr = strtok (NULL,num);
+    }
+    }
+        
+        free(str);
+        fclose (fw);
+        fclose (fr);
+    
+}
+
+int main ()
+{
+    char *str;
+    
+    Function (str);
+    
+    return 0;
+}
