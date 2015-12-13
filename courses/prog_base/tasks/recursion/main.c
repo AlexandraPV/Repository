@@ -2,24 +2,21 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-int isHexadecimal (char ch) {
-    return (isdigit (ch) || ((ch >= 'a') && (ch <= 'f')) || ((ch >= 'A') && (ch <= 'F')));
-}
 
-char Recurs(char *str, int i){
-    if (i== (strlen(str)-1))
-        return (tolower(str[0])<tolower(str[i])) ? str[0] : str[i];
-    else
-        return Recurs(str, i + 1);
-}
-
-int Function (char symbol){
+char Recurs(char *str, int i, char first, char last){
+    char current = tolower(str[i]);
+    if (current == '\0') {
+        return (first < last) ? first : last;
+    }
+    if (isxdigit(current)) {
+        if (first== 0) {
+            first = current;
+        } else {
+            last = current;
+        }
+    }
     
-    if (isdigit(symbol))
-        return symbol-48;
-    else
-        symbol=tolower(symbol);
-    return symbol-87;
+   return Recurs(str, i + 1, first, last);
 }
 
 int main()
@@ -28,10 +25,13 @@ int main()
     char *str=malloc(100*sizeof(char));
     printf("Enter string:");
     scanf("%s", str);
-    if (isHexadecimal(str[0]) && (isHexadecimal(str[strlen(str) - 1])))
-        printf("Smaller value: %d", Function (Recurs(str, 0)));
-    else
-        printf("Error! First and last characters are not valid hexadecimal numbers");
+    
+    char result = Recurs(str, 0, 0, 0);
+    if (result == 0) {
+        printf("There are less than 2 hexadecimal values in the string.\n");
+    } else {
+        printf("The smaller value is %c\n", result);
+    }
     free(str);
     return 0;
     
