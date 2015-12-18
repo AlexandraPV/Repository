@@ -128,6 +128,7 @@ void printPlaylist(Playlist *playlist){
             continue;
         }
         printf("\n%s", playlist->compositions[i]->name);
+        
     }
 }
 void printComposition(Composition *composition){
@@ -404,12 +405,13 @@ void Choose (int command, All *all){
         
         case 6:{
             char * name = malloc(100 * sizeof(char));
+        
             printf("Enter the name of new playlist:");
             scanf("%s", name);
             Playlist *playlist = findPlaylist(name, all);
             if (playlist==NULL) {
                 printf("Enter compositions of new playlist(Example: composition1/composition2):");
-                char *str;
+                char *str=malloc(100*sizeof(char));
                 scanf("%s", str);
                 
                 char **masC=malloc(1000*sizeof(char*));
@@ -438,7 +440,7 @@ void Choose (int command, All *all){
                     }
                 }
                 if (j == i) {
-                    Playlist *playlist= createPlaylist (name,all->composQ, compositions);
+                    Playlist *playlist= createPlaylist (name,i, compositions);
                     all->playlists[all->playlistQ]= playlist;
                     all->playlistQ++;
                     printPlaylist(playlist);
@@ -527,7 +529,7 @@ int main(){
     ShowCommands ();
     
     while (1) {
-        printf("\nEnter commands:");
+        printf("\nEnter command:");
         char *commandStr = malloc(100 * sizeof(char));
         scanf("%s", commandStr);
         int command = atoi(commandStr);
@@ -539,4 +541,3 @@ int main(){
 
         return 0;
    }
-
