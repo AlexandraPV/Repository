@@ -23,14 +23,14 @@ int main(){
     puts("success");
     
     delete_elem(group, 3);
-    
+   // assert(student_max_mark(group) == 5);
     printf("Max score: %d/n", student_max_mark(group));
     
     char *fam ="Ivanov";
     student_name(group, fam);
     
     print_list(group);
+    list_remove(&group);
     return 0;
 }
-
 
