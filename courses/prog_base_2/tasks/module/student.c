@@ -5,9 +5,8 @@
 #define MAX_SIZE_OF_NAME 20
 
 struct student_s {
-    char name[MAX_SIZE_OF_NAME]; //фамилия
-    //int * mas;
-    float ball;	//средний
+    char name[MAX_SIZE_OF_NAME]; 
+    float ball;	
 };
 struct list_s {
     struct student_s * student;
