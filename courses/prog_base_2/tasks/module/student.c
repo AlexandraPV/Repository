@@ -62,14 +62,13 @@ int list_student_max_mark(list_t * self ){
 }
 
 
-int list_student_name(list_t * self, char name[MAX_SIZE_OF_NAME]){
+void list_student_name(list_t * self, char name[MAX_SIZE_OF_NAME]){
     for (int i=0; i<self->size; i++) {
         if (strcmp(name, self->student[i].name) == 0){
             printf("Surname: %s\n", self->student[i].name);
             printf("Score: %.2f\n", self->student[i].ball);
         }
     }
-    return 0;
 }
 
 
