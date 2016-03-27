@@ -2,7 +2,7 @@
 
 #include "Mutex_Pro.h"
 
-void *NegativeWrite (void *info_pointer) {
+void *Do2 (void *info_pointer) {
     Info info = *(Info *)info_pointer;
     
     pthread_mutex_lock(info.mutex);
@@ -14,6 +14,13 @@ void *NegativeWrite (void *info_pointer) {
     
     pthread_mutex_unlock(info.mutex);
     
+    return 0;
+}
+
+void *NegativeWrite (void *info_pointer) {
+    pthread_t thread;
+    pthread_create(&thread, NULL, Do2, info_pointer);
+    pthread_join(thread, NULL);
     
     return 0;
 }
