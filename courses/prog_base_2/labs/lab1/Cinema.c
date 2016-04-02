@@ -60,9 +60,9 @@ bool buyer_seat_reservation(SEAT * holl, int seat, BUYER * person){
             person->count++;
         }
         else{ printf("\nThe seat is engaged\n ");return false;}
-        
+
     }
-    else{ printf("\nThe seat not found");return false;}
+    else{ printf("\nThe seat not found\n");return false;}
     return  true;
 }
 
@@ -76,9 +76,9 @@ bool buyer_seat_buy(SEAT * holl, int seat, char * name, BUYER * person){
             person->count++;
         }
         else{ printf("\nThe seat is engaged\n ");return false;}
-        
+
     }
-    else{ printf("\nThe seat not found");return false;}
+    else{ printf("\nThe seat not found\n");return false;}
     return true;
 }
 
@@ -94,7 +94,7 @@ int buyer_seat_print(BUYER * person){
 int seat_print (SEAT * seat){
     if(seat==NULL)
     {
-        puts("seat not found");
+        puts("seat not found\n");
         return 0;
     }
     int m = seat->num;
@@ -106,7 +106,7 @@ int seat_print (SEAT * seat){
             printf("Reservation\n");
         else printf( "Empty\n" );
     return 1;
-    
+
 }
 
 int seat_return( SEAT * seat ){
@@ -135,7 +135,7 @@ bool seat_unReservation( SEAT * seat ){
     return false;
 }
 
-/*bool seat_unBuy( SEAT * seat ){
+bool seat_unBuy( SEAT * seat ){
     if (seat != NULL){
         if ( seat->buy==true){
             seat->buy = false;
@@ -145,4 +145,5 @@ bool seat_unReservation( SEAT * seat ){
     }
     return false;
 }
-*/
+
+
