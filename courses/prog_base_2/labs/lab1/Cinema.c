@@ -22,30 +22,36 @@ struct B{
 
 
 SEAT * seat_new (int i){
-    SEAT * st = malloc(sizeof(struct A));
-    st->num = i;
-    st->buy=false;
-    st->reservations=false;
-   // seat_print(st);
-    return st;
+    if (i>=0){
+        SEAT * st = malloc(sizeof(struct A));
+        st->num = i;
+        st->buy=false;
+        st->reservations=false;
+        return st;
+    }
+    else return NULL;
 }
 
 BUYER * person_new(char * name_person)
 {
-    BUYER *chv=malloc(sizeof(struct B));
-    chv->name=name_person;
-    chv->count=0;
-    return chv;
+    if (name_person!= NULL){
+        BUYER *chv=malloc(sizeof(struct B));
+        chv->name=name_person;
+        chv->count=0;
+        return chv;
+    }
+    else return NULL;
 }
 
 void seat_free(SEAT *st){
     free(st);
 }
+
 void person_free(BUYER *pr){
     free(pr);
 }
 
-void buyer_seat_reservation(SEAT * holl, int seat, BUYER * person){
+bool buyer_seat_reservation(SEAT * holl, int seat, BUYER * person){
     holl=holl+seat-1;
     if (seat > 0 && seat < QUANTITY_SEAT){
         if(holl->buy == false && holl->reservations == false){
@@ -53,38 +59,36 @@ void buyer_seat_reservation(SEAT * holl, int seat, BUYER * person){
             person->my_seat[person->count]=*(holl);
             person->count++;
         }
-        else{ printf("\nThe seat is engaged\n ");exit(0);}
-        
+        else{ printf("\nThe seat is engaged\n ");return false;}
         
     }
-    else{ printf("\nThe seat not found");exit(0);}
+    else{ printf("\nThe seat not found");return false;}
+    return  true;
 }
 
 
-void buyer_seat_buy(SEAT * holl, int seat, char * name, BUYER * person){
+bool buyer_seat_buy(SEAT * holl, int seat, char * name, BUYER * person){
     holl=holl+seat-1;
-    if (seat > 0 && seat < QUANTITY_SEAT){
+    if (holl != NULL && seat > 0 && seat < QUANTITY_SEAT && person != NULL && name != NULL){
         if(holl->buy == false && holl->reservations == false){
             holl->buy = true;
             person->my_seat[person->count]=*(holl);
             person->count++;
         }
-        else{ printf("\nThe seat is engaged\n ");exit(0);}
-        
+        else{ printf("\nThe seat is engaged\n ");return false;}
         
     }
-    else{ printf("\nThe seat not found");exit(0);}
+    else{ printf("\nThe seat not found");return false;}
+    return true;
 }
 
 
-int buyer_seat_print(BUYER * person, char name[MAX_SIZE_OF_NAME]){
-    for (int i=0; i<QUANTITY_SEAT; i++) {
-        if (strcmp(name, &person->name[i]) == 0){
-            printf("Name: %c\n", person->name[i]);
-            seat_print(person->my_seat);
-        }
-    }
-    return 1;
+int buyer_seat_print(BUYER * person){
+    if (person!=NULL){
+        for(int i=0;i<person->count;i++)
+            seat_print(person->my_seat+i);
+        return 1;}
+    else return 0;
 }
 
 int seat_print (SEAT * seat){
@@ -98,10 +102,47 @@ int seat_print (SEAT * seat){
     if ( seat->buy==true )
         printf("Bought\n");
     else
-    if ( seat->reservations ==true )
-        printf("Reservation\n");
-    else printf("Empty\n");
+        if ( seat->reservations == true )
+            printf("Reservation\n");
+        else printf( "Empty\n" );
     return 1;
-        
     
 }
+
+int seat_return( SEAT * seat ){
+    if (seat !=NULL){
+        int st;
+        st = seat->num;
+        return st;
+    } else return NULL;
+}
+
+bool seat_status( SEAT * seat ){
+    if ( seat !=NULL && (seat->reservations == false || seat->buy == false) ){
+        return true;
+    }
+    else return false;
+}
+
+bool seat_unReservation( SEAT * seat ){
+    if(seat != NULL) {
+        if ( seat->reservations==true){
+            seat->reservations = false;
+        } else
+            printf("This seat isn`t reservated\n");
+        return true;
+    }
+    return false;
+}
+
+/*bool seat_unBuy( SEAT * seat ){
+    if (seat != NULL){
+        if ( seat->buy==true){
+            seat->buy = false;
+        } else
+            printf("This seat isn`t buy\n");
+        return true;
+    }
+    return false;
+}
+*/
