@@ -49,6 +49,36 @@ void computer_step_easy(void)
     else *n = 'O';
 }
 
+void computer_step_easymiddle(void)   
+{
+    int i;
+    int m=0;
+    int z=0;
+    int d;
+    char *n = (char *) field;
+    for (i=0; i<9; i++){
+        if (n[i]==POINT){
+        z++;
+        }
+    }
+    if(z==0)
+    {
+        printf("Draw\n");
+        exit(0); 
+    }
+    
+    d=rand()%z;
+    for (i=0; i<9; i++){
+        if (n[i]==POINT){
+            if(m==d){
+                n[i]= 'O';
+                break;
+            }
+            m++;
+        }
+    }
+}
+
 
 void game_field(void)
 {
