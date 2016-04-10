@@ -1,47 +1,47 @@
 [
 	{
-		“name": "Taras",
-		“surname”: “Shevchenko”,
-		“birthdate”: “1992-03-09”,
-		“company”: {
-			“name”: “Bloom”,
-			“specialization”: “advertising”
+		"name": "Taras",
+		"surname": "Shevchenko",
+		"birthdate": "1992-03-09",
+		"company": {
+			"name": "Bloom",
+			"specialization": "advertising"
 		},
-		“year”: 2009,
-		“Rating”: 7.6
+		"year": 2009,
+		"Rating": 7.6
 	},
 	{
-		“name”: “Irina”,
-		“surname”: “Kuzmenko”,
-		“birthdate”: “1994-09-09”,
-		“company”: {
-			“name”: “Smile”,
-			“specialization”: “medicine”
+		"name": "Irina",
+		"surname": "Kuzmenko",
+		"birthdate": "1994-09-09",
+		"company": {
+			"name": "Smile",
+			"specialization": "medicine"
 		},
-		“year”: 2011,
-		“Rating”: 7.6
+		"year": 2011,
+		"Rating": 7.6
 	},
 	{
-		“name”: “Ivan”,
-		“surname”: “Ivanov”,
-		“birthdate”: “1996-03-13”,
-		“company”: {
-			“name”: “Vetworld”,
-			“specialization”: “veterinarian”
+		"name": "Ivan",
+		"surname": "Ivanov",
+		"birthdate": "1996-03-13",
+		"company": {
+			"name": "Vetworld",
+			"specialization": "veterinarian"
 		},
-		“year”: 2012,
-		“Rating”: 6.2
+		"year": 2012,
+		"Rating": 6.2
 	},
 {
-		“name”: “Alex”,
-		“surname”: “Madov”,
-		“birthdate”: “1992-07-15”,
-		“company”: {
-			“name”: “Fozzy Group”,
-			“specialization”: “holding”
+		"name": "Alex",
+		"surname": "Madov",
+		"birthdate": "1992-07-15",
+		"company": {
+			"name": "Fozzy Group",
+			"specialization": "holding"
 		},
-		“year”: 2013,
-		“Rating”: 8.7
+		"year": 2013,
+		"Rating": 8.7
 
 	}
 ]
