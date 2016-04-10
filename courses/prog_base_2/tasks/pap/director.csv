@@ -1,4 +1,4 @@
-Name,Surname,BirthDate,CompanyName,Specialization,Year,Rating
+Name,Surname,BirthDate,Company_Name,Company_Specialization,Year,Rating
 Taras,Shevchenko,1992-03-09,Bloom,Advertising,2009,7.6
 Irina,Kuzmenko,1994-09-09,Smile,Medicine,2011,8.3
 Ivan,Ivanov,1996-03-13,Vetworld,Veterinarian,2012,6.2
