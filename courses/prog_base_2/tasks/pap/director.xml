@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<directors>
+    <director>
+        <name>Taras</name>
+        <surname>Shevchenko</surname>
+        <birthdate>1992-03-09</birthdate>
+        <company> 
+                <name> Bloom </name>
+                <specialization> Advertising </specialization>
+        </company>
+        <year>2009</year>
+        <rating>4.6</rating>
+    </director>
+    <director>
+        <name>Irina</name>
+        <surname>Kuzmenko</surname>
+        <birthdate>1994-09-09</birthdate>
+        <company> 
+                <name> Smile </name>
+                <specialization> medicine </specialization>
+        </company>
+        <year>2011</year>
+        <score>4.3</score>
+    </director>
+<director>
+        <name>Ivan</name>
+        <surname>Ivanov</surname>
+        <birthdate>1996-03-13</birthdate>
+        <company> 
+                <name> Vetworld </name>
+                <specialization> veterinarian </specialization>
+        </company>
+        <year>2012</year>
+        <score>8.7</score>
+    </director>
+<director>
+        <name>Alex</name>
+        <surname>Madov</surname>
+        <birthdate>1992-07-15</birthdate>
+        <company> 
+                <name> Fozzy Group </name>
+                <specialization> holding </specialization>
+        </company>
+        <year>2013</year>
+        <score>8.7</score>
+    </director>
+</directors>
