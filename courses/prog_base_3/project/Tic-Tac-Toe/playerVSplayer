@@ -101,7 +101,7 @@ void game(){
         done=status_of_game(); 
     } while(done==POINT);
     if(done=='X')
-        printf("You win!\n");
-    else printf("You lose!\n");
+         printf("You win player 1 (X)!\n");
+    else printf("You win player 2 (O)!\n");
     game_field(); 
 }
