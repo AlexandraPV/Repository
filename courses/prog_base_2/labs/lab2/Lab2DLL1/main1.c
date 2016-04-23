@@ -1,8 +1,11 @@
 #include "main1.h"
+#include <stdlib.h>
+#include <string.h>
+#include "Stack.h"
 
 void addElem(STACK *stack){
     printf("Enter string ");
-    char *str;
+    char *str=(char*)malloc(sizeof(char)*(100));;
     scanf("%s", str);
     stack_push(stack, str);
     
