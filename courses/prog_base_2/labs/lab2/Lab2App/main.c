@@ -66,15 +66,18 @@ int prog (STACK * stack){
     if ( lib_num == 1){
         if (func_num == 1 )
             addElem(stack);
+        else if (func_num==5){
+            stack_print(stack);
+        }
         else removeElems(stack);
-    }
-    if (func_num==5){
-        stack_print(stack);
     }
     
     if ( lib_num == 2){
         if (func_num == 1 )
             addElem_Rand(stack);
+        else if (func_num==5){
+            stack_print(stack);
+        }
         else removeElems_Rand(stack);
     }
     return 1;
