@@ -4,8 +4,6 @@
 #include "director.h"
 #include "db_manager.h"
 
-#define DIRECTORS_MAX_COUNT 100
-#define DATABASE_PATH "Director.db"
 #define ID_DIR 3
 #define MIN_BUDGET 1000
 #define MAX_YERAS 6
