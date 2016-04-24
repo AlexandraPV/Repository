@@ -1,7 +1,7 @@
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <strings.h>
-
 #include <sqlite3.h>
 
 #include "db_manager.h"
@@ -27,8 +27,6 @@ void db_free(db_t * self) {
     sqlite3_close(self->db);
     free(self);
 }
-
-
 
 void table_field(sqlite3_stmt * stmt, director_t *director)
 {
@@ -144,7 +142,7 @@ void db_deleteDirectorById(db_t * self, int id)
 {
     sqlite3_stmt *stmt = NULL;
     char *sqlDeleteCommand = "DELETE FROM Director WHERE Id=?";
-    //int rc = 0;
+    
     
     sqlite3_prepare_v2(self->db, sqlDeleteCommand, strlen(sqlDeleteCommand) + 1, &stmt, NULL);
     if(SQLITE_OK != sqlite3_prepare_v2(self->db,"INSERT INTO Directors  (Name, Surname, Budget, Yers, birthData) VALUES (?,?,?, ?, ?);", -1, &stmt, NULL)) {
@@ -173,21 +171,19 @@ int db_countDirectors(db_t * self)
 }
 
 
-int db_filterDirectors(db_t * self, int K, double P, director_t * directorSet, int setMaxLen)
+int db_filterDirectors(db_t * self, int K, double P, director_t * director, int size)
 {
     sqlite3_stmt *stmt = NULL;
     const char *sqlCommand = "SELECT * FROM Director WHERE Budget > ? AND Years < ?;";
     int rc = 0;
-    int directorSetIndex = 0;
+    int dir_index = 0;
     
-    // Prepare select statement.
     sqlite3_prepare_v2(self->db, sqlCommand, strlen(sqlCommand) + 1, &stmt, NULL);
     if(SQLITE_OK != sqlite3_prepare_v2(self->db,"INSERT INTO Directors  (Name, Surname, Budget, Yers, birthData) VALUES (?,?,?, ?, ?);", -1, &stmt, NULL)) {
         printf("Can't select elem!\n");
     }
     sqlite3_bind_int(stmt, 1, K);
     sqlite3_bind_double(stmt, 2, P);
-    // Go through database and find students by statement.
     
     while(1)
     {
@@ -205,13 +201,13 @@ int db_filterDirectors(db_t * self, int K, double P, director_t * directorSet, i
         }
         else
         {
-            table_field(stmt, &directorSet[directorSetIndex]);
-            directorSetIndex++;
+            table_field(stmt, &director[dir_index]);
+            dir_index++;
         }
     }
     rc = sqlite3_finalize(stmt);
     if(SQLITE_OK != sqlite3_prepare_v2(self->db,"INSERT INTO Directors  (Name, Surname, Budget, Yers, birthData) VALUES (?,?,?, ?, ?);", -1, &stmt, NULL)) {
         printf("ERROR\n");
     }
-    return (directorSetIndex);
+    return (dir_index);
 }
