@@ -11,5 +11,5 @@ director_t * db_getDirectorById(db_t * self, int id);
 void db_updateDirector(db_t * self, director_t * director, int id);
 void db_deleteDirectorById(db_t * self, int id);
 int db_countDirectors(db_t * self);
-int db_filterDirectors(db_t * self, int K, double P, director_t * directorSet, int setMaxLen);
+int db_filterDirectors(db_t * self, int K, double P, director_t * director, int size);
 
