@@ -1,3 +1,6 @@
+#ifndef PROGRAMMERS_H_INCLUDED
+#define PROGRAMMERS_H_INCLUDED
+
 typedef struct director_s
 {
     int id;
@@ -10,3 +13,6 @@ typedef struct director_s
 
 void print_dir(const director_t *director);
 void print_AllDir(director_t *director, int size);
+
+
+#endif // PROGRAMMERS_H_INCLUDED
