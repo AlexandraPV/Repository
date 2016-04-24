@@ -34,7 +34,7 @@ int main()
     print_dir(dir_with_id);
     printf("\n\n");
     
-    
+    /*
     printf("Add new director\n");
     director_t dir_for_add1 = {0, "Alex", "Shenon", 5000, 2.0, "1995-12-27"};
     db_insertDirector(db, &dir_for_add1);
@@ -46,10 +46,10 @@ int main()
     
     printf("Delete director \n");
     db_deleteDirectorById(db, 3);
-    
+    */
    
     printf("Updating director with id 1 (See comments in main).\n");
-    director_t dir_for_update = {10, "Ivan", "Ivanov", 15000, 4.0, "1976-09-23"};
+    director_t dir_for_update = {5, "Ivan", "Ivanov", 15000, 4.0, "1976-09-23"};
     db_updateDirector(db, &dir_for_update, 1);
     printf("\n\n");
     
