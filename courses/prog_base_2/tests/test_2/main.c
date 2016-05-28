@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "cJSON.h"
-#include "server.h"
 #include <time.h>
 #include <string.h>
 #include "socket.h"
