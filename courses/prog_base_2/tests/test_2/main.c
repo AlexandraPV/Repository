@@ -5,6 +5,15 @@
 #include <time.h>
 #include <string.h>
 #include "socket.h"
+void server_sent(socket_t* clientSocket, char* text)
+{
+    char buf[10000];
+    sprintf(buf,"\nHTTP1.1 200 OK\n"
+            "Content-Type: application/json\n"
+            "Content-Length: %i\r\n\r\n"
+            "%s\n",strlen(text),text);
+    socket_write_string(clientSocket,buf);
+}
 
 void server_info(socket_t* clientSocket)
 {
@@ -16,13 +25,9 @@ void server_info(socket_t* clientSocket)
     server_sent(clientSocket,jsonstud);
 }
 
-void server_sent(socket_t* clientSocket, char* text)
-{
-    char buf[10000];
-    sprintf(buf,"\nHTTP1.1 200 OK\n"
-            "Content-Type: application/json\n"
-            "Content-Length: %i\r\n\r\n"
-            "%s\n",strlen(text),text);
-    socket_write_string(clientSocket,buf);
-}
 
+int main (){
+    socket_t * clientSocket = socket_new();
+    server_info(clientSocket);
+    
+}
