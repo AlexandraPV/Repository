@@ -9,9 +9,9 @@
 void server_info(socket_t* clientSocket)
 {
     cJSON * SM = cJSON_CreateObject();
-    cJSON_AddItemToObject(SM, "student:", cJSON_CreateString("Pyvovarchuk Olexandra"));
-    cJSON_AddItemToObject(SM, "group:", cJSON_CreateString("KP-51"));
-    cJSON_AddItemToObject(SM, "variant:", cJSON_CreateNumber(17));
+    cJSON_AddItemToObject(SM, "student", cJSON_CreateString("Pyvovarchuk Olexandra"));
+    cJSON_AddItemToObject(SM, "group", cJSON_CreateString("KP-51"));
+    cJSON_AddItemToObject(SM, "variant", cJSON_CreateNumber(17));
     char * jsonSM = cJSON_Print(SM);
     server_sent(clientSocket,jsonSM);
 }
