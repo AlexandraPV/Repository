@@ -23,7 +23,7 @@ list_t park_get_out_hist(park_t * p, int n);
 int park_get_all_pl(park_t * p);
 int park_get_free_pl(park_t * p);
 car_t * car_new(int id, char * name);
-
+char * car_get_name(car_t * car);
 
 
 #endif /* Parking_h */
