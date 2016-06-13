@@ -1,61 +1,40 @@
-#include <stdio.h>
-#include "myconio.h"
-#include <string.h>
-#include <stdlib.h>
-#include <stdbool.h>
-int findString(char * text, char * add);
+//
+//  main.c
+//  №1
+//
+//  Created by Alexandra on 13.06.16.
+//  Copyright © 2016 Alexandra. All rights reserved.
+//
 
-int main()
+
+
+#include <stdlib.h>  // !
+#include <stdarg.h>  // !
+#include <stddef.h>  // !
+#include <setjmp.h>  // !
+
+#include <cmocka.h>
+
+#include "test_1.h"
+
+static void findString_charANDchar_0OR1(void **state)
 {
+    assert_int_equal(findString("ad", "adhfruhvggcj"), 1);
+    assert_int_equal(findString("ad", "adhfr uhvg gcj"), 1);
+    assert_int_equal(findString("ad", "gghghghg"), 0);
+    assert_int_equal(findString("ad", "adhfruhva\dggcj"), 1);
+}
+
+
+int main(void){
+    const struct CMUnitTest tests[] =
+    {
+        cmocka_unit_test(findString_charANDchar_0OR1),
+        
+    };
+    return cmocka_run_group_tests(tests, NULL, NULL);
     
-    char s1[200],s0[200];
-    //int i, j, s, l;
-    printf("Введите первую строку:");
-    gets(s1);
-    printf("Введите подстроку:");
-    gets(s0);
-      int l = findString(s1, s0);
-    printf("Количество вхождений подстроки = %d",l);
     return 0;
 }
 
 
-
-int findString(char * text, char * add){
-    
-    if (strlen(text) > strlen(add))
-    {
-        return 0;
-    }
-    int symbol;
-    int i,j,l;
-    
-    for(i = 0, j = 0, symbol = 0; i <= strlen(add); i++)
-    {
-        if(add[i] == text[j])
-        {
-            symbol++;
-            j++;
-            return 1;
-        }
-        else
-        {
-            symbol = 0;
-            j = 0;
-            return 0;
-
-        }
-        if(symbol == strlen(text))
-        {
-            symbol = 0;
-            j = 0;
-            return 1;
-         
-        }
-        
-    }
-    
-}
-    
-    
-    
